@@ -9,7 +9,12 @@
     "build": "nuxt build",
     "start": "NUXT_HOST=0.0.0.0 NUXT_PORT=3009 nuxt start",
     "generate": "nuxt generate",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "pm2create": "pm2 start ecosystem.config.js",
+    "kill1337": "sudo kill -9 `sudo lsof -t -i:1337`",
+    "pm2kill": "pm2 delete ecosystem.config.js",
+    "pm2restart": "npm run pm2kill; npm run pm2create;",
+    "log": "tail -f ./.cache/logs/combined.log"
   },
   "dependencies": {
     "nuxt": "^2.0.0",
