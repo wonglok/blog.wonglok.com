@@ -25,9 +25,6 @@
           </ul>
         </div>
       </div>
-
-
-
     </div>
   </footer>
 </template>

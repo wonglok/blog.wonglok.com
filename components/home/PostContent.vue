@@ -22,7 +22,6 @@
       </div>
     </div>
 
-
     <!--1/3 col -->
     <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
       <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
@@ -63,7 +62,6 @@
       </div>
     </div>
 
-
     <!--1/2 col -->
     <div class="w-full md:w-1/2 p-6 flex flex-col flex-grow flex-shrink">
       <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
@@ -103,8 +101,6 @@
         </div>
       </div>
     </div>
-
-
 
     <!--2/3 col -->
     <div class="w-full md:w-2/3 p-6 flex flex-col flex-grow flex-shrink">

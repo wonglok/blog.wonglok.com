@@ -1,8 +1,5 @@
 <template>
   <div>
-    <!--Post Content-->
-
-
     <!--Lead Para-->
     <p class="text-2xl md:text-3xl mb-5">
       👋 Welcome fellow <a class="text-gray-800 hover:text-teal-500 no-underline border-b-2 border-teal-500" href="https://www.tailwindcss.com">Tailwind CSS</a> and <a class="text-gray-800 hover:text-teal-500 no-underline border-b-2 border-teal-500" href="https://www.ghost.org">Ghost</a> fan.  This starter template is an attempt to replicate the default Ghost theme <a class="text-gray-800 hover:text-teal-500 no-underline border-b-2 border-teal-500" href="https://demo.ghost.io/welcome">"Casper"</a> using Tailwind CSS and vanilla Javascript.
@@ -26,8 +23,6 @@
         wahaha
       </code>
     </pre>
-
-
     <!--/ Post Content-->
   </div>
 </template>

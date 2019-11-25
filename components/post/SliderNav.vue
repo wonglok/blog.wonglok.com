@@ -1,6 +1,6 @@
 <template>
   <!--slide in nav-->
-  <div id="header" class="fixed w-full z-10 top-0 hidden animated" style="opacity: .95;">
+  <div id='header' class='fixed w-full z-10 top-0 hidden animated' style="opacity: .95;">
     <div class="bg-white shadow">
       <div class="flex flex-wrap items-center content-center">
         <div class="flex w-1/2 justify-start text-white font-extrabold">
@@ -21,7 +21,7 @@
 
     </div>
     <!--Progress bar-->
-    <div id="progress" class="h-1 " style="background:linear-gradient(to right, transparent 0, #3f00ff, transparent var(--scroll), transparent 0%)"></div>
+    <div id="progress" class="h-1 " style="background:linear-gradient(to right, transparent 0, #3f00ff var(--scroll), transparent var(--scroll2), transparent 0%)"></div>
   </div>
 </template>
 
@@ -29,37 +29,34 @@
 export default {
   mounted () {
     /* Progress bar */
-    //Source: https://alligator.io/js/progress-bar-javascript-css-variables/
-    var h = document.documentElement,
-        b = document.body,
-        st = 'scrollTop',
-        sh = 'scrollHeight',
-        progress = document.querySelector('#progress'),
-        scroll;
-    var scrollpos = window.scrollY;
-    var header = document.getElementById("header");
+    // Source: https://alligator.io/js/progress-bar-javascript-css-variables/
+    var h = document.documentElement
+    var b = document.body
+    var st = 'scrollTop'
+    var sh = 'scrollHeight'
+    var progress = document.querySelector('#progress')
+    var scroll = 0
+    var scrollpos = window.scrollY
+    var header = document.getElementById('header')
 
-    document.addEventListener('scroll', function() {
+    document.addEventListener('scroll', function () {
+      scroll = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100
+      progress.style.setProperty('--scroll', scroll + '%')
+      progress.style.setProperty('--scroll2', (scroll + 15) + '%')
 
-      /*Refresh scroll % width*/
-      scroll = (h[st]||b[st]) / ((h[sh]||b[sh]) - h.clientHeight) * 100;
-      progress.style.setProperty('--scroll', scroll + '%');
+      /* Apply classes for slide in bar */
+      scrollpos = window.scrollY
 
-      /*Apply classes for slide in bar*/
-      scrollpos = window.scrollY;
-
-      if(scrollpos > 100){
-        header.classList.remove("hidden");
-        header.classList.remove("fadeOutUp");
-        header.classList.add("slideInDown");
+      if (scrollpos > 100) {
+        header.classList.remove('hidden')
+        header.classList.remove('fadeOutUp')
+        header.classList.add('slideInDown')
+      } else {
+        header.classList.remove('slideInDown')
+        header.classList.add('fadeOutUp')
+        header.classList.add('hidden')
       }
-      else {
-        header.classList.remove("slideInDown");
-        header.classList.add("fadeOutUp");
-        header.classList.add("hidden");
-      }
-
-    });
+    })
   }
 }
 </script>

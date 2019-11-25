@@ -44,9 +44,7 @@ export default {
     Author: () => import('~/components/post/Author.vue'),
     PostContent: () => import('~/components/post/PostContent.vue'),
     PostFooer: () => import('~/components/post/PostFooer.vue'),
-    RecommendGallery: () => import('~/components/post/RecommendGallery.vue'),
-
-    dummy: () => Promise.resolve({})
+    RecommendGallery: () => import('~/components/post/RecommendGallery.vue')
   }
 }
 </script>
