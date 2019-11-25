@@ -1,77 +1,51 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        wonglok-blog
-      </h1>
-      <h2 class="subtitle">
-        Wong Lok&#39;s Blog
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+  <div class="bg-gray-200 font-sans leading-normal tracking-normal">
+    <!--Header-->
+    <div class="w-full m-0 p-0 bg-cover bg-bottom" style="background-image:url('/img/cover.jpg'); height: 60vh; max-height:460px;">
+        <div class="container max-w-4xl mx-auto pt-16 md:pt-32 text-center break-normal">
+          <!--Title-->
+            <p class="text-white font-extrabold text-3xl md:text-5xl">
+              👻 blog.wonglok.com
+            </p>
+            <p class="text-xl md:text-2xl text-gray-500">Welcome to my Blog</p>
+        </div>
+    </div>
+
+    <!--Container-->
+		<div class="container px-4 md:px-0 max-w-6xl mx-auto -mt-32">
+      <div class="mx-0 sm:mx-6">
+        <HeroNav></HeroNav>
+
+        <!-- content -->
+        <div class="bg-gray-200 w-full text-xl md:text-2xl text-gray-800 leading-normal rounded-t">
+
+          <LeadCard></LeadCard>
+          <PostContent></PostContent>
+
+        </div>
+        <!-- content end -->
+        <Subscribe></Subscribe>
+        <Author></Author>
+
       </div>
     </div>
+
+    <FooterCustom></FooterCustom>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-
 export default {
   components: {
-    Logo
+    PostContent: () => import('~/components/home/PostContent.vue'),
+    HeroNav: () => import('~/components/home/HeroNav.vue'),
+    LeadCard: () => import('~/components/home/LeadCard.vue'),
+    Subscribe: () => import('~/components/home/Subscribe.vue'),
+    Author: () => import('~/components/home/Author.vue'),
+    FooterCustom: () => import('~/components/home/FooterCustom.vue')
   }
 }
 </script>
 
 <style>
-/* Sample `apply` at-rules with Tailwind CSS
-.container {
-  @apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
-*/
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
 </style>
