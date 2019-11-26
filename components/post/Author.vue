@@ -1,7 +1,7 @@
 <template>
     <!--Author-->
     <div class="flex w-full items-center font-sans p-8 md:p-24">
-      <img class="w-10 h-10 rounded-full mr-4 magnify" src="https://blog-api.wonglok.com/uploads/8e8dd32bf08e456785da3d9ff8ac3161.jpg" alt="Avatar of Author">
+      <img class="w-10 h-10 rounded-full mr-4 magnify" :src="lok.smallPic" alt="Lok Lok">
       <div class="flex-1">
         <p class="text-base font-bold text-base md:text-xl leading-none">Wong Lok</p>
         <p class="text-gray-600 text-xs md:text-base">I love web inventions. I made a few projects:
@@ -22,7 +22,9 @@
 
 <script>
 export default {
-
+  props: {
+    lok: {}
+  }
 }
 </script>
 

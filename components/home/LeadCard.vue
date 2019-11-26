@@ -32,11 +32,11 @@ import * as API from '~/api/api.js'
 
 export default {
   props: {
-    post: {}
+    post: {},
+    lok: {}
   },
   data () {
     return {
-      lok: false,
       html: '',
       baseURL: API.baseURL
     }
@@ -44,7 +44,6 @@ export default {
   async mounted () {
     let partial = (this.post.content || '\n').split('\n').slice(0, 3).join('\n')
     this.html = API.renderHTML({ content: partial }) + '<br/>'
-    this.lok = await API.getLokProfSettings()
   },
   methods: {
     getReadingTime (v) {

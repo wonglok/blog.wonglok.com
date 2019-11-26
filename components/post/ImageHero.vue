@@ -17,7 +17,7 @@ export default {
 			if (this.post && this.post.cover) {
 				url = this.post.cover.url
 			}
-			return `background-image:url('${API.baseURL}/${url}'); background-color: papayawhip; max-width: 100vw; height: 56vh;`
+			return `background-image:url('${API.baseURL}/${url}'); background-size: cover; background-position: center center; background-color: papayawhip; max-width: 100vw; height: 56vh;`
 		}
 	}
 }

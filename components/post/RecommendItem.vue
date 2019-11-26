@@ -31,11 +31,16 @@ export default {
       default () {
         return false
       }
+    },
+    lok: {
+      default () {
+        return false
+      }
     }
   },
   data () {
     return {
-      lok: false,
+      // lok: false,
       baseURL: API.baseURL,
       html: '',
       partial: '',
@@ -44,7 +49,7 @@ export default {
   async mounted () {
     this.partial = (this.post.content || '\n').split('\n').slice(0, 3).join('\n')
     this.html = API.renderHTML({ content: this.partial }) + '<br/>'
-    this.lok = await API.getLokProfSettings()
+    // this.lok = await API.getLokProfSettings()
   },
   methods: {
     getDate () {

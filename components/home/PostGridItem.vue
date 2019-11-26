@@ -24,6 +24,9 @@ import * as API from '~/api/api.js'
 import moment from 'moment'
 export default {
   props: {
+    lok: {
+      default: false
+    },
     ratio: {
       default: `1/3`
     },
@@ -35,7 +38,6 @@ export default {
   },
   data () {
     return {
-      lok: false,
       baseURL: API.baseURL,
       html: '',
       partial: '',
@@ -44,7 +46,6 @@ export default {
   async mounted () {
     this.partial = (this.post.content || '\n').split('\n').slice(0, 3).join('\n')
     this.html = API.renderHTML({ content: this.partial }) + '<br/>'
-    this.lok = await API.getLokProfSettings()
   },
   methods: {
     getDate () {

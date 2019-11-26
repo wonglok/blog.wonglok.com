@@ -4,9 +4,9 @@
     <div class="bg-white shadow">
       <div class="flex flex-wrap items-center content-center">
         <div class="flex w-1/2 justify-start text-white font-extrabold">
-          <a class="flex text-gray-900 no-underline hover:text-gray-900 hover:no-underline pl-2" href="#">
-            👻 <span class="hidden w-0 md:w-auto md:block pl-1">blog.wonglok.com</span>
-          </a>
+          <nuxt-link class="flex text-gray-900 no-underline hover:text-gray-900 hover:no-underline pl-2" to="/">
+            <span class="hidden w-0 md:w-auto md:block pl-1">blog.wonglok.com</span>
+          </nuxt-link>
         </div>
         <div class="flex w-1/2 justify-end content-center">
             <p class="hidden sm:block mr-3 text-center h-14 p-4 text-xs"><span class="pr-2">Share this</span> 👉</p>

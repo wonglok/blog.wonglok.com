@@ -13,8 +13,8 @@
         <!-- content -->
         <div class="bg-gray-200 w-full text-xl md:text-2xl text-gray-800 leading-normal rounded-t">
 
-          <LeadCard v-if="firstPost" :post="firstPost"></LeadCard>
-          <PostGrid v-if="latestPosts.length > 0" :posts="latestPosts"></PostGrid>
+          <LeadCard v-if="firstPost" :lok="lok" :post="firstPost"></LeadCard>
+          <PostGrid v-if="latestPosts.length > 0" :lok="lok" :posts="latestPosts"></PostGrid>
 
         </div>
         <!-- content end -->
@@ -41,11 +41,13 @@ export default {
     FooterCustom: () => import('~/components/home/FooterCustom.vue')
   },
   async asyncData ({ isDev, route, store, env, params, query, req, res, redirect, error }) {
-    const data = {}
+    const data = {
+      latestPosts: []
+    }
     try {
       data.latestPosts = await API.getLatestPosts()
+      data.lok = await API.getLokProfSettings()
     } catch (e) {
-      data.latestPosts = []
     }
     data.firstPost = data.latestPosts[0]
 

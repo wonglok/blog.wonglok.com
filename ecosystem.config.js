@@ -1,5 +1,5 @@
 module.exports = {
-  apps : [{
+  apps: [{
     name: 'blog.wonglok.com',
     script: 'npm',
     // watch: [
@@ -12,19 +12,19 @@ module.exports = {
     // ],
     // ignore_watch : ['node_modules', './global/public'],
     // Options reference: https://pm2.io/doc/en/runtime/reference/ecosystem-file/
-    args: 'run dev',
+    args: 'run prod',
     instances: 1,
     autorestart: true,
     max_memory_restart: '1G',
     env: {
       NODE_ENV: 'development',
-      PORT: 8765,
+      PORT: 3009,
       NUXT_HOST: '0.0.0.0',
       NUXT_PORT: 3009
     },
     env_production: {
       NODE_ENV: 'production',
-      PORT: 8765,
+      PORT: 3009,
       NUXT_HOST: '0.0.0.0',
       NUXT_PORT: 3009
     },
@@ -46,4 +46,4 @@ module.exports = {
   //     'post-deploy': 'npm install && pm2 reload ecosystem.config.js --env production'
   //   }
   // }
-};
+}

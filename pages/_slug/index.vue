@@ -23,7 +23,7 @@
         <!-- white area emd -->
 
         <Subscribe></Subscribe>
-        <Author></Author>
+        <Author :lok="lok"></Author>
 
       </div>
       <!-- padder end -->
@@ -31,7 +31,7 @@
     </div>
     <!-- container end -->
 
-    <RecommendGallery v-if="post" :related="related" :post="post"></RecommendGallery>
+    <RecommendGallery v-if="post" :related="related" :post="post" :lok="lok"></RecommendGallery>
     <PostFooer></PostFooer>
   </div>
 </template>
@@ -52,12 +52,21 @@ export default {
   },
   async asyncData ({ isDev, route, store, env, params, query, req, res, redirect, error }) {
     const data = {
-      slug: route.params.slug
+      slug: route.params.slug,
+      posts: [],
+      post: false,
+      related: [],
+      lok: false
     }
-    data.posts = await API.getPostsBySlug({ slug: route.params.slug })
-    data.post = data.posts[0]
 
-    data.related = await API.getRelated({ post: data.post })
+    try {
+      data.posts = await API.getPostsBySlug({ slug: route.params.slug })
+      data.post = data.posts[0]
+      data.related = await API.getRelated({ post: data.post })
+      data.lok = await API.getLokProfSettings()
+    } catch (e) {
+
+    }
 
     data.debug = JSON.stringify(data, null, '\t')
 

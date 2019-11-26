@@ -25,9 +25,9 @@
         <pre>{{ related }}</pre>
         -->
 
-        <RecommendItem :ratio="`1/${related.length}`" :post="related[0]"></RecommendItem>
-        <RecommendItem :ratio="`1/${related.length}`" :post="related[1]"></RecommendItem>
-        <RecommendItem :ratio="`1/${related.length}`" :post="related[2]"></RecommendItem>
+        <RecommendItem :lok="lok" :ratio="`1/${related.length}`" :post="related[0]"></RecommendItem>
+        <RecommendItem :lok="lok" :ratio="`1/${related.length}`" :post="related[1]"></RecommendItem>
+        <RecommendItem :lok="lok" :ratio="`1/${related.length}`" :post="related[2]"></RecommendItem>
 
         <!--
         // <div class="w-full md:w-1/3 px-2 pb-12">
@@ -51,13 +51,16 @@
         -->
       </div>
     </div>
-    </div>
+  </div>
 </template>
 
 <script>
 import * as API from '~/api/api.js'
 export default {
   props: {
+    lok: {
+      default: false
+    },
     related: {
       default: false
     },

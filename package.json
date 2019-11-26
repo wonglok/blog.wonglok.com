@@ -6,6 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "NUXT_HOST=0.0.0.0 NUXT_PORT=3009 nuxt",
+    "prod": "npm run build; npm run start;",
     "build": "nuxt build",
     "start": "NUXT_HOST=0.0.0.0 NUXT_PORT=3009 nuxt start",
     "generate": "nuxt generate",
