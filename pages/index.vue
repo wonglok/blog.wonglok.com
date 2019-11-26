@@ -1,15 +1,9 @@
 <template>
   <div class="bg-gray-200 font-sans leading-normal tracking-normal">
-    <!--Header-->
-    <div class="w-full m-0 p-0 bg-cover bg-bottom" style="background-image:url('/img/cover.jpg'); height: 60vh; max-height:460px;">
-        <div class="container max-w-4xl mx-auto pt-16 md:pt-32 text-center break-normal">
-          <!--Title-->
-            <p class="text-white font-extrabold text-3xl md:text-5xl">
-              👻 blog.wonglok.com
-            </p>
-            <p class="text-xl md:text-2xl text-gray-500">Welcome to my Blog</p>
-        </div>
-    </div>
+    <!--
+    <pre>{{ debug }}</pre>
+    -->
+    <HomeHeader></HomeHeader>
 
     <!--Container-->
 		<div class="container px-4 md:px-0 max-w-6xl mx-auto -mt-32">
@@ -19,8 +13,8 @@
         <!-- content -->
         <div class="bg-gray-200 w-full text-xl md:text-2xl text-gray-800 leading-normal rounded-t">
 
-          <LeadCard></LeadCard>
-          <PostContent></PostContent>
+          <LeadCard v-if="firstPost" :post="firstPost"></LeadCard>
+          <PostGrid v-if="latestPosts.length > 0" :posts="latestPosts"></PostGrid>
 
         </div>
         <!-- content end -->
@@ -35,14 +29,28 @@
 </template>
 
 <script>
+import * as API from '~/api/api.js'
 export default {
   components: {
-    PostContent: () => import('~/components/home/PostContent.vue'),
+    HomeHeader: () => import('~/components/home/HomeHeader.vue'),
+    PostGrid: () => import('~/components/home/PostGrid.vue'),
     HeroNav: () => import('~/components/home/HeroNav.vue'),
     LeadCard: () => import('~/components/home/LeadCard.vue'),
     Subscribe: () => import('~/components/home/Subscribe.vue'),
     Author: () => import('~/components/home/Author.vue'),
     FooterCustom: () => import('~/components/home/FooterCustom.vue')
+  },
+  async asyncData ({ isDev, route, store, env, params, query, req, res, redirect, error }) {
+    const data = {}
+    try {
+      data.latestPosts = await API.getLatestPosts()
+    } catch (e) {
+      data.latestPosts = []
+    }
+    data.firstPost = data.latestPosts[0]
+
+    data.debug = JSON.stringify(data, null, '\t')
+    return data
   }
 }
 </script>

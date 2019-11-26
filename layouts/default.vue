@@ -6,6 +6,8 @@
 
 <script>
 import '~/assets/css/animate.min.css'
+// import '~/assets/css/hljs.css'
+
 export default {
 }
 </script>

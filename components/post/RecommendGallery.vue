@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-200">
+  <div class="bg-gray-200" v-if="related && related.length >= 2">
     <div class="container w-full max-w-6xl mx-auto px-2 py-8">
       <div class="flex flex-wrap -mx-2">
         <!--
@@ -21,10 +21,14 @@
         // 		</a>
         // 	</div>
         // </div>
+
+        <pre>{{ related }}</pre>
         -->
-        <RecommendItem></RecommendItem>
-        <RecommendItem></RecommendItem>
-        <RecommendItem></RecommendItem>
+
+        <RecommendItem :ratio="`1/${related.length}`" :post="related[0]"></RecommendItem>
+        <RecommendItem :ratio="`1/${related.length}`" :post="related[1]"></RecommendItem>
+        <RecommendItem :ratio="`1/${related.length}`" :post="related[2]"></RecommendItem>
+
         <!--
         // <div class="w-full md:w-1/3 px-2 pb-12">
         // 	<div class="h-full bg-white rounded overflow-hidden shadow-md hover:shadow-lg relative smooth">
@@ -51,9 +55,28 @@
 </template>
 
 <script>
+import * as API from '~/api/api.js'
 export default {
+  props: {
+    related: {
+      default: false
+    },
+    post: {}
+  },
   components: {
     RecommendItem: () => import('~/components/post/RecommendItem.vue')
+  },
+  data () {
+    return {
+    }
+  },
+  mounted () {
+    // this.getRelated()
+  },
+  methods: {
+    // async getRelated () {
+    //   this.related
+    // }
   }
 }
 </script>
